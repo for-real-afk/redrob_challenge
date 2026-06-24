@@ -1,0 +1,66 @@
+# Redrob Hackathon — Submission Metadata
+# The fields here match what you submit via the portal at upload time.
+
+# ============================================================================
+# Team identity
+# ============================================================================
+team_name: "Intelligent Discoverers"  # Used in leaderboard and announcements
+
+primary_contact:
+  name: "Deepak"
+  email: "primary@example.com"   # Used for all organizer communication
+  phone: "+91-9999999999"        # Used for outreach
+
+team_members:
+  - name: "Deepak"
+    email: "primary@example.com"
+    role: "ML Engineer"
+
+# ============================================================================
+# Code and reproducibility
+# ============================================================================
+github_repo: "https://github.com/for-real-afk/redrob_challenge"
+sandbox_link: "https://huggingface.co/spaces/deepa/redrob-ranker"
+
+reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./submission.csv"
+
+# ============================================================================
+# Compute environment
+# ============================================================================
+compute:
+  platform: "Local Windows PC"
+  cpu_cores: 8
+  ram_gb: 16
+  python_version: "3.12"
+  os: "Windows 11"
+  uses_gpu_for_inference: false                 # Must be false
+  has_network_during_ranking: false             # Must be false
+  pre_computation_required: true               # true (embeddings cached offline)
+  pre_computation_time_minutes: 4               # Targeted lexical filtering is fast
+
+# ============================================================================
+# AI tools declaration
+# ============================================================================
+ai_tools_used:
+  - "Gemini"
+
+ai_usage_summary: |
+  Used Gemini AI coding assistant for pair programming, designing features layers,
+  refactoring scoring logic, and writing unit tests. No candidate data was sent to any hosted
+  LLM API during ranking.
+
+# ============================================================================
+# Approach summary
+# ============================================================================
+methodology_summary: |
+  Decoupled Pairwise Learning-to-Rank System. Features adaptive multi-source retrieval (union capped at 3,000), local all-MiniLM-L6-v2 embeddings similarity, and an XGBRanker tree model trained on consensus pairwise preferences (agreement >= 3 of 5 independent generators) to resolve bias leakage. Includes a post-inference Calibration Layer scaled by candidate completeness/verification confidence, a factual Evidence Density Score, and dynamic recruiter-style explanations. Runs offline in 200 seconds with 0% honeypots.
+
+# ============================================================================
+# Declarations
+# ============================================================================
+declarations:
+  read_submission_spec: true
+  code_is_original_work: true
+  no_collusion: true
+  honeypot_check_done: true
+  reproduction_tested: true

@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Virtual Environment
+venv/
+env/
+
+# Data and submission files
+candidates.jsonl
+*.csv
+
+# Streamlit config
+.streamlit/
+
+# Presentations and Word files
+*.pptx
+*.docx
+~$*
+
+# Internal reports and logs
+project_explanation.md
+ablation_report.md
+failure_analysis.md
+feature_importance_report.md
