@@ -13,6 +13,7 @@ env/
 # Data and submission files
 candidates.jsonl
 *.csv
+*.xlsx
 
 # Streamlit config
 .streamlit/
